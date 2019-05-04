@@ -1,5 +1,5 @@
-def Saludo(nombre):
-	return "Hola "+nombre
+div = 1 / 0
 
-def Suma(a,b):
-	return a + b
+print(div)
+
+print("Final")
