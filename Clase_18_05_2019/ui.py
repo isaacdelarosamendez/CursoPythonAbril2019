@@ -8,25 +8,31 @@ from tkinter import messagebox
 # construye y muestra la ventana con todos sus widgets: 
 
 class Aplicacion():
+
     def __init__(self):
-        raiz = Tk()
-        raiz.geometry('300x200')
-        raiz.title('Alumnos')
+        #Creamos una nueva ventana
+        ventana = Tk()
+        ventana.geometry('300x200')
+        ventana.title('Alumnos')
         # Crear widgets.
-        lblnombres = ttk.Label(raiz,text="Nombres")
-        txtnombres = ttk.Entry(raiz)
-        lblapellidos =ttk.Label(raiz,text="Apellidos")
-        txtapellidos = ttk.Entry(raiz)
-        btnGuardar = Button(text="Guardar alumno", command=lambda: self.Save(txtnombres))
+        lblnombres = ttk.Label(ventana,text="Nombres")
+        txtnombres = ttk.Entry(ventana)
+        lblapellidos =ttk.Label(ventana,text="Apellidos")
+        txtapellidos = ttk.Entry(ventana)
+        btnSave = Button(text="Guardar", command=lambda: self.Save(txtnombres))
         #    Posicionarla en la ventana.
+        #   x es Vertical, y es Horizontal
         lblnombres.place(x=10, y=10)
         txtnombres.place(x=100, y=10)
         lblapellidos.place(x=10, y=50)
         txtapellidos.place(x=100, y=50)
-        btnGuardar.place(x=10, y=100)
-        raiz.mainloop()
+        btnSave.place(x=10, y=100)
+        #   Permitimos que la ventana quede visible
+        ventana.mainloop()
+
     def Mess(self,mensaje):
         messagebox.showinfo("Mensaje", mensaje)
+
     #funcion que ejecuta el boton de SAVE, pide como parametro un puntero a textbox
     def Save(self,txtnombres):
         if(txtnombres.get() == ""):
