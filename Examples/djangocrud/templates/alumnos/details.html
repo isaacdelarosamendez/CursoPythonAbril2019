@@ -1,0 +1,27 @@
+{% extends "alumnos/layout.html" %}
+{% block content %}
+{% csrf_token %}
+<h1>{{alumno}}</h1>
+<a onclick="GetAlumno();">Click</a>
+<input type="hidden" id="csrf_token" value='{"csrfmiddlewaretoken": "{{ csrf_token }}"}'>
+{% endblock %}
+{% block scripts %}
+<script type="text/javascript">
+    function GetAlumno() {
+        $.ajax({
+                url: "../../../alumnos/nuevo/",
+                type: 'POST',
+                contentType: 'application/json; charset=utf-8',
+                dataType: "json",
+                data: "{}",
+                success: function (result) {
+                    console.log(result);
+                },
+                error: function (xhr, status, error) {
+                    console.log(xhr.responseText);
+                    alert("Error al consumir servicio web");
+                }
+            });
+    }
+</script>
+{% endblock %}
