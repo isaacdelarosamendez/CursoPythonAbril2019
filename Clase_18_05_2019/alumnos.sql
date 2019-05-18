@@ -13,18 +13,13 @@ create table alumnos(
     FOREIGN KEY (idCurso) REFERENCES cursos (idCurso)
 );
 
-
-
-INSERT INTO cursos(nombre)
-VALUES ('Python'),
-('PHP')
-
-SELECT * FROM cursos
-
-insert into alumnos(idcurso,nombres,apellidos)
-values(1,'Isaac','De la rosa')
-
-
-
-drop table cursos;
-drop table alumnos;
+create table maestros(
+    idMaestro serial not null,
+    idCurso integer,
+    nombres varchar(25) not null,
+    apellidos varchar(25) not null,
+	correo varchar(25) NOT NULL,
+	telefono varchar(25) NOT NULL,
+    PRIMARY KEY (idMaestro),
+    FOREIGN KEY (idCurso) REFERENCES cursos (idCurso)
+);

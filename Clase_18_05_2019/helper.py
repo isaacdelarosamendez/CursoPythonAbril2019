@@ -1,7 +1,9 @@
 import psycopg2
 
 #Creamos la conexion
-connection = psycopg2.connect(dbname="UANL", user="postgres", password="123456")
+connection = psycopg2.connect(dbname="UANL", 
+user="postgres", 
+password="123456")
 
 try:
   #abrimos el cursor a la base de datos
